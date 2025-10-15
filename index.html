@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Dev Concepts Explained</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+    }
+
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ddd;
+    }
+
+    .interactive {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Modern Web Development Concepts</h1>
+  </header>
+  <main>
+
+    <section id="react">
+      <h2>1. What is React?</h2>
+      <p><strong>React</strong> is a JavaScript <strong>library</strong> developed by Facebook for building user interfaces. It is component-based, declarative, and uses a <strong>Virtual DOM</strong> to efficiently update the browser DOM.</p>
+      
+      <pre><code>// React component example (JSX)
+function Hello() {
+  return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+}
+</code></pre>
+    </section>
+
+    <section id="spa-mpa">
+      <h2>2. SPA vs MPA</h2>
+      <p><strong>SPA (Single Page Application)</strong> loads a single HTML page and updates content dynamically without refreshing the page. <strong>MPA (Multi Page Application)</strong> reloads the entire page on each navigation.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>SPA</th>
+            <th>MPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Speed</td>
+            <td>Fast (after load)</td>
+            <td>Slower</td>
+          </tr>
+          <tr>
+            <td>SEO</td>
+            <td>Needs SSR/Workaround</td>
+            <td>Better by default</td>
+          </tr>
+          <tr>
+            <td>Complexity</td>
+            <td>Less</td>
+            <td>More</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="framework-comparison">
+      <h2>3. Angular vs React vs Vue vs Next.js</h2>
+      <p>These are the most popular tools in modern web development. Here's a quick comparison:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Angular</th>
+            <th>React</th>
+            <th>Vue</th>
+            <th>Next.js</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Type</td>
+            <td>Framework</td>
+            <td>Library</td>
+            <td>Framework</td>
+            <td>Framework (on React)</td>
+          </tr>
+          <tr>
+            <td>Language</td>
+            <td>TypeScript</td>
+            <td>JavaScript (JSX)</td>
+            <td>JavaScript</td>
+            <td>JavaScript (JSX)</td>
+          </tr>
+          <tr>
+            <td>Best For</td>
+            <td>Enterprise apps</td>
+            <td>Flexible UIs</td>
+            <td>Beginner-friendly apps</td>
+            <td>SEO, SSR with React</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="library-framework">
+      <h2>4. Library vs Framework</h2>
+      <p>A <strong>library</strong> offers specific functionality and you call it in your code. A <strong>framework</strong> provides the entire structure and calls your code instead (Inversion of Control).</p>
+
+      <div class="interactive">
+        <p>Click the button to see how a library vs a framework works:</p>
+        <button onclick="showExample()">Show Example</button>
+        <div id="exampleOutput" style="margin-top:10px;"></div>
+      </div>
+    </section>
+
+    <section id="dom">
+      <h2>5. DOM vs Virtual DOM</h2>
+      <p><strong>DOM (Document Object Model)</strong> represents the structure of a webpage. Modifying it directly can be slow.</p>
+      <p><strong>Virtual DOM</strong> is a lightweight copy that updates the real DOM only when needed, improving performance (used by React).</p>
+
+      <div class="interactive">
+        <p>Click below to simulate a DOM update:</p>
+        <button onclick="updateDOM()">Update Real DOM</button>
+        <p id="domText">Initial DOM content.</p>
+      </div>
+
+      <div class="interactive">
+        <p>Now try updating using a "Virtual DOM" simulation:</p>
+        <button onclick="updateVirtualDOM()">Update Virtual DOM</button>
+        <p id="vdomText">Initial Virtual DOM content.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function showExample() {
+      const output = document.getElementById('exampleOutput');
+      output.innerHTML = `
+        <strong>Library:</strong> You call it. E.g., <code>$.get()</code><br/>
+        <strong>Framework:</strong> It calls you. E.g., <code>Angular runs your component lifecycle.</code>
+      `;
+    }
+
+    function updateDOM() {
+      const domText = document.getElementById('domText');
+      domText.textContent = "DOM updated at " + new Date().toLocaleTimeString();
+    }
+
+    function updateVirtualDOM() {
+      const vdom = document.getElementById('vdomText');
+      const virtualState = { text: "Virtual DOM updated at " + new Date().toLocaleTimeString() };
+      
+      // Simulate diffing (simple check)
+      if (vdom.textContent !== virtualState.text) {
+        vdom.textContent = virtualState.text;
+      }
+    }
+  </script>
+</body>
+</html>
